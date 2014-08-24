@@ -12,7 +12,7 @@ require(data.table)
 if (!require("reshape2")) {install.packages("reshape2")}
 require(reshape2)
 
-## Download data
+## Set working directory and download data
 work.dir<-getwd()
 if(is.null(work.dir)) {
   setwd()
@@ -26,7 +26,7 @@ unzip("UCI_HAR_download.zip")
 dateDownloaded <- date()
 dateDownloaded
 
-## Load applicable tables
+## Load descriptor tables
 actLables<-read.table("./UCI HAR Dataset/activity_labels.txt")[,2]
 features<-read.table("./UCI HAR Dataset/features.txt")[,2]
 
@@ -71,12 +71,12 @@ y_train[,2]<-actLables[y_train[,1]]
 names(y_train)<-c("ActivityID", "Activity")
 names(subject_train)<-c("SubjectID")
 
-## Combine _test tables
+## Combine _train tables
 tblTrain<-cbind(as.data.table(subject_train), y_train, X_train)
 
 ## ---------------------- Combine Tables
 
-## Combine test and train data
+## Combine _test and _train data
 tblUCI_tidy<-rbind(tblTest,tblTrain)
 
 ## Create second tidy data set of means
