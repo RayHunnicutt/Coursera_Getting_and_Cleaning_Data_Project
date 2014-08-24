@@ -10,7 +10,7 @@ date: "August 24, 2014"
 |-----------|----|-----------------------------|-----------|
 |SubjectID  |int |subject_xxx.txt data files   |none       |
 |ActivityID |int |activity_labels.txt          |none       |
-|Activity   |int |activity_labels.txt          |none       |
+|Activity   |chr |activity_labels.txt          |none       |
 
 _Please Note:_
 Detailed documentation including values can be found in the documentation provided in the UCI HAR Dataset.
